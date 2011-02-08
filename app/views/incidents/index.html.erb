@@ -1,0 +1,33 @@
+<h1>Listing incidents</h1>
+
+<table>
+  <tr>
+    <th>Mountain</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>When</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @incidents.each do |incident| %>
+  <tr>
+    <td><%= incident.mountain %></td>
+    <td><%= incident.latitude %></td>
+    <td><%= incident.longitude %></td>
+    <td><%= incident.when %></td>
+    <td><%= incident.title %></td>
+    <td><%= incident.description %></td>
+    <td><%= link_to 'Show', incident %></td>
+    <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
+    <td><%= link_to 'Destroy', incident, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Incident', new_incident_path %>

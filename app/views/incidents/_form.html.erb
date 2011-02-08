@@ -1,0 +1,41 @@
+<%= form_for(@incident) do |f| %>
+  <% if @incident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+      <ul>
+      <% @incident.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mountain %><br />
+    <%= f.text_field :mountain %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :when %><br />
+    <%= f.datetime_select :when %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
